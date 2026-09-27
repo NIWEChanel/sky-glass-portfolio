@@ -5,10 +5,10 @@ import { BottomDock } from "@/components/bottom-dock";
 export const Route = createFileRoute("/projects")({
   head: () => ({
     meta: [
-      { title: "Projects — Alex" },
-      { name: "description", content: "Explore Alex's project archive — prototypes, websites and design systems." },
-      { property: "og:title", content: "Projects — Alex" },
-      { property: "og:description", content: "Explore Alex's project archive — prototypes, websites and design systems." },
+      { title: "Projects — chanel" },
+      { name: "description", content: "Explore chanel's project archive — prototypes, websites and design systems." },
+      { property: "og:title", content: "Projects — chanel" },
+      { property: "og:description", content: "Explore chanel's project archive — prototypes, websites and design systems." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],

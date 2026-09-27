@@ -6,10 +6,10 @@ import { BottomDock } from "@/components/bottom-dock";
 export const Route = createFileRoute("/search")({
   head: () => ({
     meta: [
-      { title: "Search — Alex" },
-      { name: "description", content: "Search Alex's projects, notes and case studies." },
-      { property: "og:title", content: "Search — Alex" },
-      { property: "og:description", content: "Search Alex's projects, notes and case studies." },
+      { title: "Search — chanel" },
+      { name: "description", content: "Search chanel's projects, notes and case studies." },
+      { property: "og:title", content: "Search — chanel" },
+      { property: "og:description", content: "Search chanel's projects, notes and case studies." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],

@@ -4,7 +4,7 @@ Design a mobile-first, single-page personal portfolio website utilizing a pristi
 
 Layout & Elements (Top to Bottom):
 
-Header: Top left says "Good morning," in white text, with a large bold white greeting "Alex" underneath. Remove any hamburger menu. Top right corner must have a circular frosted white glass button with sky blue text labeled "About".
+Header: Top left says "Good morning," in white text, with a large bold white greeting "chanel" underneath. Remove any hamburger menu. Top right corner must have a circular frosted white glass button with sky blue text labeled "About".
 
 Hero Card (Glassmorphism): A large, frosted white glass container floating in the center with soft clay shadows. Inside this card, place a prominent "Today" date widget styled in white with sky blue accents.
 
