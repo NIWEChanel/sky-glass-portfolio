@@ -1,0 +1,204 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Design system: "Sky Glass"
+ * Strict palette: sky blue + white only.
+ * Glassmorphism surfaces, claymorphic soft shadows, iOS-inspired tactility.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-sky: var(--sky);
+  --color-sky-deep: var(--sky-deep);
+  --color-sky-soft: var(--sky-soft);
+  --color-sky-mist: var(--sky-mist);
+  --color-glass: var(--glass);
+}
+
+:root {
+  --radius: 1.25rem;
+
+  /* Sky-blue scale — the only hue in the system */
+  --sky: oklch(0.72 0.125 232);          /* primary sky blue */
+  --sky-deep: oklch(0.5 0.115 236);      /* readable text / icons on white */
+  --sky-soft: oklch(0.86 0.06 230);      /* tint fills, icon chips */
+  --sky-mist: oklch(0.94 0.03 228);      /* subtle washes */
+
+  /* Background = soft gradient sky (applied on body below) */
+  --background: oklch(0.85 0.07 230);
+  --foreground: oklch(0.5 0.115 236);
+
+  --card: oklch(1 0 0 / 55%);
+  --card-foreground: oklch(0.5 0.115 236);
+  --popover: oklch(1 0 0 / 78%);
+  --popover-foreground: oklch(0.5 0.115 236);
+  --primary: oklch(0.72 0.125 232);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.94 0.03 228);
+  --secondary-foreground: oklch(0.5 0.115 236);
+  --muted: oklch(0.94 0.03 228);
+  --muted-foreground: oklch(0.6 0.09 233);
+  --accent: oklch(0.86 0.06 230);
+  --accent-foreground: oklch(0.5 0.115 236);
+  --destructive: oklch(0.6 0.15 20);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(1 0 0 / 65%);
+  --input: oklch(1 0 0 / 70%);
+  --ring: oklch(0.72 0.125 232);
+}
+
+.dark {
+  /* The app is a light, airy experience; dark mode is intentionally unstyled beyond a matching sky wash */
+  --background: oklch(0.6 0.11 233);
+  --foreground: oklch(0.98 0.01 230);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    background-image: linear-gradient(
+      165deg,
+      oklch(0.92 0.045 226) 0%,
+      oklch(0.84 0.08 229) 38%,
+      oklch(0.74 0.12 232) 100%
+    );
+    background-attachment: fixed;
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background-color: oklch(0.72 0.125 232 / 30%);
+    color: oklch(0.5 0.115 236);
+  }
+}
+
+@layer components {
+  /* Frosted white glass card */
+  .glass-card {
+    background: linear-gradient(135deg, oklch(1 0 0 / 62%), oklch(1 0 0 / 34%));
+    -webkit-backdrop-filter: blur(22px) saturate(1.5);
+    backdrop-filter: blur(22px) saturate(1.5);
+    border: 1px solid oklch(1 0 0 / 75%);
+    box-shadow:
+      0 24px 48px -20px oklch(0.55 0.12 233 / 45%),
+      0 6px 14px -6px oklch(0.55 0.12 233 / 22%),
+      inset 0 1.5px 1px oklch(1 0 0 / 95%),
+      inset 0 -8px 18px oklch(0.72 0.125 232 / 10%);
+  }
+
+  /* Stronger glass — used for the floating dock */
+  .glass-strong {
+    background: linear-gradient(135deg, oklch(1 0 0 / 84%), oklch(1 0 0 / 66%));
+    -webkit-backdrop-filter: blur(26px) saturate(1.6);
+    backdrop-filter: blur(26px) saturate(1.6);
+    border: 1px solid oklch(1 0 0 / 85%);
+    box-shadow:
+      0 22px 40px -16px oklch(0.5 0.11 234 / 42%),
+      0 4px 10px -4px oklch(0.5 0.11 234 / 20%),
+      inset 0 1.5px 1px oklch(1 0 0 / 100%),
+      inset 0 -5px 12px oklch(0.72 0.125 232 / 9%);
+  }
+
+  /* Claymorphic puff — solid white surfaces with sky-tinted depth */
+  .clay {
+    background: linear-gradient(145deg, oklch(1 0 0 / 96%), oklch(0.96 0.015 230 / 88%));
+    -webkit-backdrop-filter: blur(18px);
+    backdrop-filter: blur(18px);
+    border: 1px solid oklch(1 0 0 / 90%);
+    box-shadow:
+      0 20px 34px -14px oklch(0.6 0.13 232 / 38%),
+      0 5px 12px -4px oklch(0.6 0.13 232 / 22%),
+      inset 0 2.5px 3px oklch(1 0 0 / 100%),
+      inset 0 -5px 10px oklch(0.72 0.125 232 / 12%);
+  }
+
+  /* Small claymorphic circle (quick-action buttons, icon chips) */
+  .clay-circle {
+    background: linear-gradient(145deg, oklch(1 0 0 / 100%), oklch(0.94 0.02 230 / 92%));
+    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
+    border: 1px solid oklch(1 0 0 / 95%);
+    box-shadow:
+      0 14px 24px -10px oklch(0.6 0.13 232 / 42%),
+      0 3px 8px -2px oklch(0.6 0.13 232 / 24%),
+      inset 0 2.5px 3px oklch(1 0 0 / 100%),
+      inset 0 -4px 8px oklch(0.72 0.125 232 / 14%);
+  }
+
+  /* Pressed/tactile hover + active feedback for clay surfaces */
+  .clay-press {
+    transition: transform 180ms cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 180ms ease;
+  }
+  .clay-press:hover {
+    transform: translateY(-2px);
+  }
+  .clay-press:active {
+    transform: translateY(1px) scale(0.97);
+    box-shadow:
+      0 8px 14px -8px oklch(0.6 0.13 232 / 40%),
+      inset 0 2px 4px oklch(0.72 0.125 232 / 22%),
+      inset 0 -2px 6px oklch(1 0 0 / 90%);
+  }
+
+  /* Frosted circular "About" chip */
+  .glass-chip {
+    background: linear-gradient(135deg, oklch(1 0 0 / 72%), oklch(1 0 0 / 48%));
+    -webkit-backdrop-filter: blur(20px) saturate(1.5);
+    backdrop-filter: blur(20px) saturate(1.5);
+    border: 1px solid oklch(1 0 0 / 85%);
+    box-shadow:
+      0 16px 28px -12px oklch(0.5 0.11 234 / 40%),
+      inset 0 1.5px 1px oklch(1 0 0 / 100%),
+      inset 0 -4px 10px oklch(0.72 0.125 232 / 12%);
+  }
+
+  /* Subtle sky glass input */
+  .glass-input {
+    background: linear-gradient(135deg, oklch(1 0 0 / 80%), oklch(1 0 0 / 60%));
+    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
+    border: 1px solid oklch(1 0 0 / 85%);
+    box-shadow: inset 0 2px 5px oklch(0.72 0.125 232 / 14%);
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}
